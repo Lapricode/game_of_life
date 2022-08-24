@@ -1,0 +1,2 @@
+﻿(Oscillator) Ταλαντωτής με περίοδο ταλάντωσης 2 γενιές. Συνίσταται από 2 blinkers τοποθετημένα το ένα πάνω στο άλλο, με το ένα από τα δύο να προπορεύεται κατά ένα ζωντανό κύτταρο.
+Oscillator with 2 generations oscillation period. It consists of 2 blinkers located one above the other, displaced by one living cell.

@@ -1,0 +1,2 @@
+﻿(Oscillator) Ταλαντωτής με περίοδο ταλάντωσης 3 γενιές. Δημιουργεί την εντύπωση αστεριού του οποίου το φως πάλλεται περιοδικά, για αυτό ίσως ονομάζεται pulsar (αστέρας νετρονίων).
+Oscillator with 3 generations oscillation period. It creates the impression of a flickering stars, that's why is called pulsar.

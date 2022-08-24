@@ -1,0 +1,2 @@
+﻿(Spaceship) Πλήρης ονομασία: heavyweight spaceship. Καλείται σπανιότερα και big fish. Είναι το τέταρτο συνηθέστερο διαστημόπλοιο μετά τα glider, LWSS, και MWSS, με περίοδο 4 γενιές. Χρησιμοποιείται και ως eater για gliders.
+Its full name is "heavyweight spaceship". It is also called "big fish" but less often. It is the fourth most known and common spaceship (after glider, LWSS and MWSS), with 4 generations period. It can be used as an eater for gliders.

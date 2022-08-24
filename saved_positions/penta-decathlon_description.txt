@@ -1,0 +1,2 @@
+﻿(Oscillator) Ταλαντωτής με μεγάλη περίοδο ταλάντωσης (15 γενιές). Αποτελείται από μία γραμμή 10 ζωντανών κυττάρων. Είναι χαρακτηριστικό ότι καθώς εξελίσσεται η προσομοίωση δεν εμφανίζεται ξανά η αρχική διάταξη (η γραμμή των 10 κυττάρων), γεγονός που δεν συμβαίνει συνήθως με τους υπόλοιπους ταλαντωτές.
+Oscillator with big oscillation period (15 generations). It cosists of a line of 10 initial live cells. It's notable that, as the simulation progresses, the initial configuration never appears again, fact that does not usually happen with the rest of oscillators.

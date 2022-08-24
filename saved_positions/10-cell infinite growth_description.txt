@@ -1,0 +1,2 @@
+﻿(Cluster-Infinite growth) Η διάταξη αυτή διαθέτει μόλις 10 ζωντανά κύτταρα, παρ'όλα αυτά εξελίσσεται διαρκώς χωρίς να εξαφανίζεται. Έχει αποδειχθεί ότι είναι η μικρότερη διάταξη που μπορεί να σχεδιαστεί με τη συγκεκριμένη ιδιότητα.
+It has only 10 initial live cells, nevertheless it grows continually and does not die. It has been proven that it is the smallest configuration that can be designed with this special property.

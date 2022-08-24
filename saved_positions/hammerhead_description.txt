@@ -1,0 +1,2 @@
+﻿(Spaceship) Από τα μεγαλύτερα διαστημόπλοια με συμμετρική αρχική διάταξη, η κεφαλή του οποίου έχει το σχήμα σφυριού. Όταν κινείται μοιάζει με ψαλίδι.
+It is one of the biggest spaceships with symmetrical initial configuration. Its head has the shape of a hammer (as the name implies). When it moves it looks like a scissors.

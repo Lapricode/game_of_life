@@ -1,0 +1,2 @@
+﻿(Methuselahs) Το μοτίβο "diehard" τελικά πεθαίνει κι εξαφανίζεται αντί να σταθεροποιηθεί, μετά από 130 γενιές, που εικάζεται ότι είναι η μέγιστη διάρκεια ζωής για θέσεις που εξελίσσονται συνεχώς με εφτά ή λιγότερα αρχικά ζωντανά κύτταρα.
+This pattern eventually dies and disappears instead of stabilising, after 130 generations. It is assumed to be the biggest life span of positions that are steadily developed, with 7 or less initial live cells.

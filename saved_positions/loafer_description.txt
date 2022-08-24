@@ -1,0 +1,2 @@
+﻿(Spaceship) Διαστημόπλοιο με περίοδο κίνησης 7. Η κίνηση και η συμπεριφορά του είναι αργή, γεγονός που δικαιολογεί το όνομά του.
+Spaceship with 7 generations motion period. Its movement and behavior is slow, fact that justifies its name.

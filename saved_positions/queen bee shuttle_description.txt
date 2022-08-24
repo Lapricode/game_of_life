@@ -1,0 +1,2 @@
+(Oscillator) Ταλαντωτής με περίοδο κίνησης 30 γενιές. Ήταν ο πρώτος ταλαντωτής που βρέθηκε με τη συγκεκριμένη περίοδο. Η κίνησή του μοιάζει με το επαναλαμβανόμενο ταξίδι μιας μέλισσας μεταξύ δύο σταθερών σημείων.
+Oscillator with 30 generations oscillation period. It was the first oscillator found with this exact period. Its movement reminds of the repetitive travel of a bee between two stable points.

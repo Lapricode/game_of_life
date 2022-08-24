@@ -1,0 +1,2 @@
+﻿(Oscillator) Ταλαντωτής με περίοδο 16 γενιές. Συμμετρικό, με την ιδιότητα να αναστρέφει τη δομή του κατά τη διάρκεια της περιόδου κίνησής του.
+Oscillator with 16 generations oscillation period. It is symmetrical, with the property of inverting its structure during its motion.

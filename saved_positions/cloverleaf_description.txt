@@ -1,0 +1,2 @@
+﻿(Oscillator) Ταλαντωτής με περίοδο ταλάντωσης 4 γενιές. Η ταλάντωση που προκαλείται είναι μια μικρή επαναλαμβανόμενη κίνηση στο κέντρο της διάταξης, ενώ όλα τα υπόλοιπα ζωντανά κύτταρα συμβάλλουν στη σταθερότητα της κατασκευής.
+Oscillator with 4 generations period. The oscillation caused is small repetitive motion in the centre of the configuration, with all the other live cells contributing to the stability of the construction.

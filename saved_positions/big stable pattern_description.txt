@@ -1,0 +1,2 @@
+﻿(Still lifes) Είναι ένα μοτίβο σχήματος τετραγώνου 20x20 με τη μεγαλύτερη πυκνότητα ζωντανών κυττάρων στο εσωτερικό του που μπορεί να επιτευχθεί, ώστε να παραμένει σταθερό και αμετάβλητο με την πάροδο των γενεών.
+This is a 20x20 square pattern with the biggest live cells dencity in its interior space that can be achieved, in order to be steady and stable with the come and go of the generations.

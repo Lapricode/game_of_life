@@ -1,0 +1,2 @@
+﻿(Oscillator) Ταλαντωτής με περίοδο ταλάντωσης 2 γενιές. Συνίσταται από μια γραμμή τριών ζωντανών κυττάρων.
+Oscillator with 2 generations period. It consists of a 3 live cells line.

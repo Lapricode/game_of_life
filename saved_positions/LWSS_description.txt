@@ -1,0 +1,2 @@
+﻿(Spaceship) Πλήρης ονομασία: lightweight spaceship. Καλείται και small fish. Είναι το δεύτερο πιο σύνηθες διαστημόπλοιο μετά το glider και έχει περίοδο 4 γενιές. Το συγκεκριμένο διαστημόπλοιο, όπως και τα MWSS και HWSS ανακαλύφθηκε από τον John Conway το 1970.
+Its full name is "lightweight spaceship". It is also called "small fish" but less often. It is the second most known and common spaceship (after glider), with 4 generations period. This spaceship (like the MWSS and HWSS) was discovered by John Conway in 1970.
