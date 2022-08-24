@@ -1,0 +1,2 @@
+Απλά μια καταγραφή ενδεικτικής προσομοίωσης του Gosper glider gun.
+Just an indicative simulation recording of the Gosper glider gun.
