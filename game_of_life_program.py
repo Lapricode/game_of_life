@@ -35,6 +35,8 @@ class game_of_life():
         self.speed = 5000
         self.born_rules = [3]
         self.survive_rules = [2, 3]
+        self.initial_gen_simulation_graf = 0
+        self.final_gen_simulation_graf = 0
         self.start_interface()
     def start_interface(self):
         #------------Δημιουργία πλέγματος προσομοίωσης.-------------#
@@ -68,7 +70,7 @@ class game_of_life():
         for i in range(self.rows):
             self.grid_cells_row = []
             for j in range(self.columns):
-                self.grid_cells_row.append(button(self.grid_background, self.button_size, i, j))
+                self.grid_cells_row.append(button(self.grid_background, self.button_size, i * self.columns, i, j))
             self.grid_cells.append(self.grid_cells_row)
         for i in range(self.rows):
             for j in range(self.columns):
@@ -667,6 +669,7 @@ class game_of_life():
                     self.switched_cells.append([i, j])
                 self.neighboors = 0
         if self.go_to_gen_mode == 'off':
+            self.final_gen_simulation_graf += 1
             self.root.after(int(self.speed / self.speed_control_button.get()), self.switch_matrix_simulation)
         elif self.go_to_gen_mode == 'on':
             pass         
@@ -882,11 +885,11 @@ class game_of_life():
             if self.max_cells != 0:
                 for i in range(1, final_gen - initial_gen + 1):
                     self.x_after = ((i + 1) / (final_gen - initial_gen + 4)) * self.simulation_graf_width
-                    self.y_after = - (self.graf_history[i] / (self.max_cells + 20) - 1) * self.simulation_graf_height
+                    self.y_after = - (self.graf_history[initial_gen + i] / (self.max_cells + 20) - 1) * self.simulation_graf_height
                     self.simulation_graf.create_line(self.x_previous, self.y_previous, self.x_after, self.y_after, fill = 'brown')
-                    if self.graf_history[i] == self.min_cells:
+                    if self.graf_history[initial_gen + i] == self.min_cells:
                         self.simulation_graf.create_oval(self.x_after - 3, self.y_after - 3, self.x_after + 3, self.y_after + 3, fill = 'red')
-                    elif self.graf_history[i] == self.max_cells:
+                    elif self.graf_history[initial_gen + i] == self.max_cells:
                         self.simulation_graf.create_oval(self.x_after - 3, self.y_after - 3, self.x_after + 3, self.y_after + 3, fill = 'green')
                     self.x_previous = self.x_after
                     self.y_previous = self.y_after
@@ -911,7 +914,7 @@ class game_of_life():
         except:
             pass
         self.pointer_graf = self.simulation_graf.create_line(event.x, 0, event.x, self.simulation_graf_height, fill = 'brown', dash = 5)
-        self.marked_gen_string.set(int(event.x / self.simulation_graf_width * (len(self.graf_history) + 3)) - 1)
+        self.marked_gen_string.set(self.initial_gen_simulation_graf + int(event.x / self.simulation_graf_width * (self.final_gen_simulation_graf - self.initial_gen_simulation_graf + 4)) - 1)
     def set_starting_point_focus_rectangle(self, event):
         self.xcor2 = event.x
         self.ycor2 = event.y
@@ -925,6 +928,8 @@ class game_of_life():
             self.ycor3 = event.y
         except:
             pass
+        self.initial_gen_simulation_graf = self.initial_gen_simulation_graf + int(self.xcor2 / self.simulation_graf_width * (self.final_gen_simulation_graf - self.initial_gen_simulation_graf + 4)) - 1
+        self.final_gen_simulation_graf = self.initial_gen_simulation_graf + int(self.xcor3 / self.simulation_graf_width * (self.final_gen_simulation_graf - self.initial_gen_simulation_graf + 4)) - 1
         self.focus_rectangle = self.simulation_graf.create_rectangle(self.xcor2, self.ycor2, self.xcor3, self.ycor3, outline = 'black')
     def zoom_in_simulation_graf(self, event):
         self.reset_simulation_progression()
@@ -1125,6 +1130,7 @@ class game_of_life():
         self.grid_situation_reveal.delete("all")
     def reset_simulation_progression(self):
         self.simulation_graf.delete("all")
+        self.initial_gen_simulation_graf = 0
     def reset_simulation_information(self):    
         self.min_cells_string.set('-')
         self.times_min_string.set('-')
@@ -1136,22 +1142,23 @@ class button():
     enter_button_state = 'highlight'
     continuous_paint_state = 'mark'
     canvas_offset = 3
-    def __init__(self, grid_background, button_size, row, column):
+    def __init__(self, grid_background, button_size, number, row, column):
         self.grid_background = grid_background
         self.row = row
         self.column = column
+        self.number = number
         self.button_size = button_size
         self.button_width = 0
         self.choose_color = 0
         self.control_highlight = 0
         self.control_press = 'unpressed'
     def set_button_on_grid(self, row, column):
-        self.button = self.grid_background.create_rectangle([column * self.button_size + button.canvas_offset, row * self.button_size + button.canvas_offset, (column + 1) * self.button_size + button.canvas_offset, (row + 1) * self.button_size + button.canvas_offset], fill = "#006fff", width = self.button_width, outline = "orange", tags = f"button{self.row}{self.column}")
-        self.grid_background.tag_bind(f"button{self.row}{self.column}", "<Button-1>", self.button_pressed)
-        self.grid_background.tag_bind(f"button{self.row}{self.column}", "<Button-2>", self.change_enter_button_mode)
-        self.grid_background.tag_bind(f"button{self.row}{self.column}", "<Button-3>", self.change_continuous_paint_state)
-        self.grid_background.tag_bind(f"button{self.row}{self.column}", "<Enter>", self.highlight_button_paint_continuously)
-        self.grid_background.tag_bind(f"button{self.row}{self.column}", "<Leave>", self.unhighlight_button)
+        self.button = self.grid_background.create_rectangle([column * self.button_size + button.canvas_offset, row * self.button_size + button.canvas_offset, (column + 1) * self.button_size + button.canvas_offset, (row + 1) * self.button_size + button.canvas_offset], fill = "#006fff", width = self.button_width, outline = "orange", tags = f"button_{self.number}_{self.row}_{self.column}")
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-1>", self.button_pressed)
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-2>", self.change_enter_button_mode)
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-3>", self.change_continuous_paint_state)
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Enter>", self.highlight_button_paint_continuously)
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Leave>", self.unhighlight_button)
     def change_enter_button_mode(self, event):
         if button.enter_button_state == 'highlight':
             button.enter_button_state = 'paint'
