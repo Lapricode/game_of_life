@@ -1151,8 +1151,8 @@ class button():
     def set_button_on_grid(self, row, column):
         self.button = self.grid_background.create_rectangle([column * self.button_size + button.canvas_offset, row * self.button_size + button.canvas_offset, (column + 1) * self.button_size + button.canvas_offset, (row + 1) * self.button_size + button.canvas_offset], fill = "#006fff", width = self.button_width, outline = "orange", tags = f"button_{self.number}_{self.row}_{self.column}")
         self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-1>", self.button_pressed)
-        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-2>", self.change_enter_button_mode)
-        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-3>", self.change_continuous_paint_state)
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-2>", self.change_continuous_paint_state)
+        self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Button-3>", self.change_enter_button_mode)
         self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Enter>", self.highlight_button_paint_continuously)
         self.grid_background.tag_bind(f"button_{self.number}_{self.row}_{self.column}", "<Leave>", self.unhighlight_button)
     def change_enter_button_mode(self, event):
