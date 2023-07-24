@@ -72,10 +72,6 @@ class game_of_life():
             for j in range(self.columns):
                 self.grid_cells_row.append(button(self.grid_background, self.button_size, i * self.columns, i, j))
             self.grid_cells.append(self.grid_cells_row)
-        for i in range(self.rows):
-            for j in range(self.columns):
-                self.grid_cells[i][j].set_button_on_grid(i, j)
-        self.grid_background.delete("all")
         for i in range(self.up_row, self.down_row + 1):
             for j in range(self.left_column, self.right_column + 1):
                 self.grid_cells[i][j].set_button_on_grid(i - self.up_row, j - self.left_column)        
@@ -275,11 +271,11 @@ class game_of_life():
         self.information_box = tk.Text(self.information_box_background, font = 'Calibri 10 bold', width = 38, height = 24)
         self.information_box.grid(row = 0, column = 0, sticky = tk.N)
         '''
-	self.information_label_background = tk.Frame(self.root, bd = 2, relief = 'solid')
+        self.information_label_background = tk.Frame(self.root, bd = 2, relief = 'solid')
         self.information_label_background.grid(row = 3, column = 2, columnspan = 2, sticky = tk.NSEW)
         self.information_label = tk.Label(self.information_label_background, text = 'Στην πάνω περιοχή έχεις τη δυνατότητα να καταγράφεις τα δεδομένα της προσομοίωσης σε μορφή\nγραφήματος. Στην κάτω αριστερά περιοχή προβάλλεται μια μικρογραφία της κατάστασης ολόκληρου\nτου πλέγματος προσομοίωσης οποιαδήποτε στιγμή το επιθυμήσεις, ενώ στην κάτω δεξιά μπορείς\nνα ενημερώνεσαι για ό,τι συμβαίνει στο παιχνίδι κατά τη διάρκεια της περιήγησής σου σε αυτό.', font = 'Calibri 9 bold')
         self.information_label.grid(row = 0, column = 0, sticky = tk.NSEW)
-	'''
+        '''
             #------------Δημιουργία εφέ για τα κουμπιά.-------------#
         self.control_grid_limits_button.bind('<Enter>', self.control_grid_limits_button_turn_on)
         self.move_grid_left_button.bind('<Enter>', self.move_grid_left_button_turn_on)
@@ -521,11 +517,11 @@ class game_of_life():
         self.grid_background.delete("all")
         for i in range(self.up_row, self.down_row + 1):
             for j in range(self.left_column, self.right_column + 1):
-                self.grid_cells[i][j].set_button_on_grid(i - self.up_row, j - self.left_column)
-                if self.grid_cells[i][j].control_press == 'pressed':
-                    self.grid_background.itemconfigure(self.grid_cells[i][j].button, fill = self.colors_list[self.grid_cells[i][j].choose_color])
+                self.grid_cells[i % self.rows][j % self.columns].set_button_on_grid(i - self.up_row, j - self.left_column)
+                if self.grid_cells[i % self.rows][j % self.columns].control_press == 'pressed':
+                    self.grid_background.itemconfigure(self.grid_cells[i % self.rows][j % self.columns].button, fill = self.colors_list[self.grid_cells[i % self.rows][j % self.columns].choose_color])
                 else:
-                    self.grid_background.itemconfigure(self.grid_cells[i][j].button, fill = self.colors_list[-1])
+                    self.grid_background.itemconfigure(self.grid_cells[i % self.rows][j % self.columns].button, fill = self.colors_list[-1])
     def grid_up(self):
         if self.up_row != 0:
             self.up_row -= 1
@@ -696,7 +692,7 @@ class game_of_life():
                 self.death_cells_string.set(int(self.death_cells_string.get()) + self.deaths)
                 self.finally_cells_string.set(int(self.finally_cells_string.get()) + self.births - self.deaths)
                 for cell in self.switched_cells:
-                    self.grid_cells[cell[0]][cell[1]].button_pressed()
+                    self.grid_cells[cell[0] % self.rows][cell[1] % self.columns].button_pressed()
                 if self.recording_state == 'run_recording':
                     if self.switched_cells != []:
                         self.recording_history.append(self.switched_cells)
@@ -814,7 +810,7 @@ class game_of_life():
             if self.play_direction_state == 'reverse':
                 self.generations_string.set(int(self.generations_string.get()) - 1)
             for cell in self.switched_cells:
-                self.grid_cells[cell[0]][cell[1]].button_pressed()
+                self.grid_cells[cell[0] % self.rows][cell[1] % self.columns].button_pressed()
             if self.grid_reveal_mode_button['text'] == 'Auto':
                 self.scan_grid(self.revealed_left_column, self.revealed_right_column, self.revealed_up_row, self.revealed_down_row)
             self.play_next_frame()
@@ -984,7 +980,7 @@ class game_of_life():
             self.revealed_up_row += self.centre_row - int(self.rows_columns_number / 2)
             self.revealed_down_row = self.revealed_up_row + self.rows_columns_number - 1
         self.scan_grid(self.revealed_left_column, self.revealed_right_column, self.revealed_up_row, self.revealed_down_row)
-        self.write_information_box('Appearing grid', 'brown', '\n Grid size: {}x{}\nRows: {} - {}\nColumns: {} - {}'.format(self.rows_columns_number, self.rows_columns_number, self.revealed_up_row + 1, self.revealed_down_row + 1, self.revealed_left_column + 1, self.revealed_right_column + 1))
+        self.write_information_box('Appearing grid', 'brown', '\nGrid size: {}x{}\nRows: {} - {}\nColumns: {} - {}'.format(self.rows_columns_number, self.rows_columns_number, self.revealed_up_row + 1, self.revealed_down_row + 1, self.revealed_left_column + 1, self.revealed_right_column + 1))
     def move_focus_area(self, event = None):
         try:
             self.grid_situation_reveal.delete(self.focus_area)
