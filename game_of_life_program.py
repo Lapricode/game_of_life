@@ -268,7 +268,7 @@ class game_of_life():
         self.grid_reveal_mode_button.grid(row = 1, column = 2, rowspan = 2, sticky = tk.NSEW)
         self.information_box_background = tk.Frame(self.root, bd = 2, relief = 'solid')
         self.information_box_background.grid(row = 3, column = 3, sticky = tk.N)
-        self.information_box = tk.Text(self.information_box_background, font = 'Calibri 10 bold', width = 38, height = 24)
+        self.information_box = tk.Text(self.information_box_background, font = 'Calibri 10 bold', width = 38, height = 24, wrap = "word")
         self.information_box.grid(row = 0, column = 0, sticky = tk.N)
         '''
         self.information_label_background = tk.Frame(self.root, bd = 2, relief = 'solid')
